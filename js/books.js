@@ -1,3 +1,4 @@
+// search-button
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -8,7 +9,7 @@ const searchBook = () => {
         .then(data => displaySearchResult(data));
     
 }
-
+// displaying result
 const displaySearchResult = data => {
     const searchResult = document.getElementById('search-result');
     const totalResult = document.getElementById('total-result');
