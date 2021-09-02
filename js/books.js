@@ -26,7 +26,6 @@ const displaySearchResult = data => {
     }
 
     books.forEach(book => {
-        console.log(book);
         
         const div = document.createElement('div');
         div.classList.add('col');
