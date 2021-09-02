@@ -14,15 +14,18 @@ const displaySearchResult = data => {
     const totalResult = document.getElementById('total-result');
     const books = data.docs;
     searchResult.textContent = '';
+
+    if(data.numFound === 0){
+        
+        totalResult.innerHTML = `<h3>Total Books Found: ${data.numFound}</h3>
+        <h3>No Result Found</h3>`;
+    }
+    else{
+        totalResult.innerHTML = `<h3>Total Books Found: ${data.numFound}</h3>`;
+    }
+
     books.forEach(book => {
         console.log(book);
-        
-        if(data.numFound === 0){
-            totalResult.innerHTML = `<h3>No Result Found</h3>`;
-        }
-        else{
-            totalResult.innerHTML = `<h3>Total Books Found: ${data.numFound}</h3>`;
-        }
         
         const div = document.createElement('div');
         div.classList.add('col');
@@ -40,10 +43,3 @@ const displaySearchResult = data => {
         searchResult.appendChild(div);
     })
 }
-
-// const totalResult = total => {
-//     console.log(total);
-//     const totalResult = document.getElementById('total-result');
-//     totalResult.innerText = 'Total Results: ' + total.numFound;
-    
-// }
